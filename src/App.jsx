@@ -7,18 +7,11 @@ function App() {
 
   const [taskTitle, setTaskTitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
-  const [taskArray, setTaskArray] = useState(() => {
-    const taskArrayData = JSON.parse(localStorage.getItem("taskArrayData")) || [];
-    if (taskArrayData.length > 0) {
-      return (taskArrayData);
-    } else {
-      return [{
-        id: 0,
-        title: "Tarea de prueba",
-        description: "Acá puedes escribir la descripción de tu tarea."
-      }];
-    };
-  });
+  const [taskArray, setTaskArray] = useState(JSON.parse(localStorage.getItem("taskArrayData")) || [{
+    id: 0,
+    title: "Mi primer tarea",
+    description: "Mi primer descripción"
+  }]);
 
   useEffect(() => {
     localStorage.setItem("taskArrayData", JSON.stringify(taskArray));

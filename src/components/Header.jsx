@@ -20,8 +20,9 @@ export function Header(props) {
                     <br />
                     <input placeholder="Descripción" type="text" onInput={(e) => {
                         onHandleChangeDescription(e.target.value);
-                    }} value={taskDescription} /><br />
-                    <button type="submit">Agregar tarea</button>
+                    }} value={taskDescription} />
+                    <br />
+                    <button type="submit" style={{alignSelf: "center"}}>+</button>
                 </form>
             </div></>
     );

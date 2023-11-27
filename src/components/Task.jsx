@@ -25,16 +25,16 @@ export function Task (props){
             }}/>
             <button onClick={() =>{
                 setEditing(true);
-            }} style={viewMode}>✍️</button>
+            }} style={viewMode}>✏️</button>
             <button onClick={() => {
                 onHandleEdit(currentId, displayedTask, displayedDescription);
                 setEditing(false);
-            }} style={editMode}>👍</button>
+            }} style={editMode}>✔️</button>
             <button onClick={() => {
                 setEditing(false);
                 setDisplayedTask(currentTask);
                 setDisplayedDescription(currentDescription);
-            }} style={editMode}>👎</button>
+            }} style={editMode}>✖️</button>
             <button onClick={() =>{
                 onHandleDeleteTask(currentId);
             }} style={viewMode}>🗑️</button>

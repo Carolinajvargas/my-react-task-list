@@ -14,7 +14,7 @@ export function TaskList(props) {
             </div>
             <div className="pendingClean">
                 <label htmlFor="">Tiene {list.length} tareas pendientes </label>
-                <button id="cleanAllBttn" onClick={() => onHandleDelete()}>Limpiar tareas</button>
+                <button id="cleanAllBttn" onClick={() => onHandleDelete()}>Empezar de cero</button>
             </div>
         </div>
     );
