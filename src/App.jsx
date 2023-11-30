@@ -2,6 +2,7 @@ import { Header } from './components/Header';
 import { TaskList } from './components/TaskList'
 import "./app.css";
 import { useState, useEffect } from 'react';
+import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
 
@@ -56,10 +57,12 @@ function App() {
   };
 
   return (
+    <ChakraProvider>
     <div className='body'>
         <Header name="Lista de tareas" onHandleClick={onHandleClick} onHandleChangeTitle={onHandleChangeTitle} onHandleChangeDescription={onHandleChangeDescription} taskTitle={taskTitle} taskDescription={taskDescription}/>
         <TaskList list={taskArray} onHandleDelete={onHandleDelete} onHandleEdit={onHandleEdit} onHandleDeleteTask={onHandleDeleteTask}/>
     </div>
+    </ChakraProvider>
     );
 }
 

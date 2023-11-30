@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { IconButton } from '@chakra-ui/react';
+import { BiSolidEdit, BiSolidXSquare, BiTrash, BiSolidCheckSquare  } from "react-icons/bi";
 
 export function Task (props){
     const { currentTask, currentDescription, currentId, onHandleEdit, onHandleDeleteTask } = props;
@@ -23,21 +25,36 @@ export function Task (props){
             <input type="text" value={displayedTask} style={editMode} onChange={(e) => {
                 setDisplayedTask(e.target.value);
             }}/>
-            <button onClick={() =>{
+            <IconButton colorScheme="orange" icon={<BiSolidEdit />} onClick={() =>{
+                setEditing(true);
+            }} style={viewMode}/>
+            <IconButton colorScheme="orange" icon={<BiSolidCheckSquare />} onClick={() => {
+                onHandleEdit(currentId, displayedTask, displayedDescription);
+                setEditing(false);
+            }} style={editMode}/>
+            <IconButton colorScheme="orange" icon={<BiSolidXSquare />} onClick={() => {
+                setEditing(false);
+                setDisplayedTask(currentTask);
+                setDisplayedDescription(currentDescription);
+            }} style={editMode}/>
+            <IconButton colorScheme="orange" icon={<BiTrash />} onClick={() =>{
+                onHandleDeleteTask(currentId);
+            }} style={viewMode}/>
+            {/* <button onClick={() =>{
                 setEditing(true);
             }} style={viewMode}>✏️</button>
             <button onClick={() => {
                 onHandleEdit(currentId, displayedTask, displayedDescription);
                 setEditing(false);
-            }} style={editMode}>✔️</button>
-            <button onClick={() => {
+            }} style={editMode}>✔️</button> */}
+            {/* <button onClick={() => {
                 setEditing(false);
                 setDisplayedTask(currentTask);
                 setDisplayedDescription(currentDescription);
             }} style={editMode}>✖️</button>
             <button onClick={() =>{
                 onHandleDeleteTask(currentId);
-            }} style={viewMode}>🗑️</button>
+            }} style={viewMode}>🗑️</button> */}
         </div>
         <p style={viewMode}>{ currentDescription }</p>
         <input type="text" value={displayedDescription} style={editMode} onChange={(e) => {

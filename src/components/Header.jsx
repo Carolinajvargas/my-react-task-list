@@ -1,3 +1,5 @@
+import { Button, Input, Stack } from '@chakra-ui/react';
+
 export function Header(props) {
     const { name, onHandleClick, onHandleChangeTitle, onHandleChangeDescription, taskTitle, taskDescription } = props;
 
@@ -14,15 +16,16 @@ export function Header(props) {
                     e.preventDefault();
                     onHandleClick();
                 }}>
-                    <input placeholder="Título" type="text" onInput={(e) => {
+                  <Stack spacing={3}>
+                    <Input placeholder='Título' size='lg' type='text' onInput={(e) => {
                         onHandleChangeTitle(e.target.value);
                     }} value={taskTitle} />
-                    <br />
-                    <input placeholder="Descripción" type="text" onInput={(e) => {
+                    <Input placeholder='Descripción' size='lg' type='text' onInput={(e) => {
                         onHandleChangeDescription(e.target.value);
-                    }} value={taskDescription} />
-                    <br />
-                    <button type="submit" style={{alignSelf: "center"}}>+</button>
+                    }} value={taskDescription}/>
+                    <Button type='submit' colorScheme='orange' size="lg">+</Button>
+                  </Stack>
+                    
                 </form>
             </div></>
     );
