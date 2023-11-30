@@ -1,3 +1,5 @@
+import { Button } from '@chakra-ui/react'
+
 import { Task } from "./Task"
 
 export function TaskList(props) {
@@ -14,7 +16,7 @@ export function TaskList(props) {
             </div>
             <div className="pendingClean">
                 <label htmlFor="">Tiene {list.length} tareas pendientes </label>
-                <button id="cleanAllBttn" onClick={() => onHandleDelete()}>Empezar de cero</button>
+                <Button colorScheme='orange' onClick={() => onHandleDelete()} size="sm">Empezar de cero</Button>
             </div>
         </div>
     );
